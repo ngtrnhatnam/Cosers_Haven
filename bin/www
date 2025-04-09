@@ -1,0 +1,11 @@
+var app = require('../app');
+var http = require('http');
+var dotenv = require('dotenv');
+dotenv.config();
+
+var PORT = process.env.PORT || 3000;
+var server = http.createServer(app);
+
+server.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
+});
