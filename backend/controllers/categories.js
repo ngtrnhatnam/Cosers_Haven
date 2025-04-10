@@ -71,6 +71,7 @@ module.exports = {
     deleteCategory: async (req, res) => {
         try {
             const id = req.params.id;
+<<<<<<< HEAD:backend/controllers/categories.js
             const reason = req.body.reason || 'No reason provided';
 
             const deleted = await Category.findByIdAndUpdate(id, {
@@ -82,6 +83,11 @@ module.exports = {
             }, { new: true });
     
             if (!deleted) {
+=======
+            const deletedCategory = await Category.findByIdAndUpdate(id, { isDeleted: true }, {new: true});
+    
+            if (!deletedCategory) {
+>>>>>>> b72e69ef11034dde096e0834091b70d8760acec3:controllers/categories.js
                 return res.status(404).json({ message: 'Category not found' });
             }
     

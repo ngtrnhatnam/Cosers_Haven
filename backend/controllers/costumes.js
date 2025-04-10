@@ -10,6 +10,7 @@ module.exports = {
         }
     },
 
+<<<<<<< HEAD:backend/controllers/costumes.js
     getCostumeByIdOrSlug: async (req, res) => {
         try {
             const param = req.params.id;
@@ -34,6 +35,12 @@ module.exports = {
                 return res.status(404).json({ message: 'Costume not found' });
             }
     
+=======
+    getCostumeById: async (req, res) => {
+        try {
+            const costume = await Costume.find().populate('categoryID', 'name');
+            if (!costume) return res.status(404).json({ message: 'Costume not found' });
+>>>>>>> b72e69ef11034dde096e0834091b70d8760acec3:controllers/costumes.js
             res.status(200).json(costume);
         } catch (err) {
             res.status(500).json({ error: err.message });
@@ -97,6 +104,7 @@ module.exports = {
     deleteCostume: async (req, res) => {
         try {
             const id = req.params.id;
+<<<<<<< HEAD:backend/controllers/costumes.js
             const reason = req.body.reason || 'No reason provided';
 
             const deleted = await Costume.findByIdAndUpdate(id, {
@@ -108,6 +116,11 @@ module.exports = {
             }, { new: true });
 
             if (!deleted) {
+=======
+            const deletedCostume = await Costume.findByIdAndUpdate(id, { isDeleted: true }, { new: true });
+
+            if (!deletedCostume) {
+>>>>>>> b72e69ef11034dde096e0834091b70d8760acec3:controllers/costumes.js
                 return res.status(404).json({ message: 'Costume not found' });
             }
 

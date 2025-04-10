@@ -14,6 +14,7 @@ let categorySchema = new mongoose.Schema({
         type: String, 
         unique: true 
     },
+<<<<<<< HEAD:backend/schemas/category.js
     deleteInfo: {
         isDeleted: {
             type: Boolean,
@@ -32,6 +33,12 @@ let categorySchema = new mongoose.Schema({
             default: null
         },
     },
+=======
+    isDeleted: {
+        type: Boolean,
+        default: false
+    }
+>>>>>>> b72e69ef11034dde096e0834091b70d8760acec3:schemas/category.js
 }, {
     timestamps: true
 });

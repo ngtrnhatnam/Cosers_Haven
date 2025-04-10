@@ -8,11 +8,18 @@ let costumeSchemas = new mongoose.Schema({
     },
     character: {
         type: String,
+<<<<<<< HEAD:backend/schemas/costume.js
         default: ''
     },
     series: {
         type: String,
         default: ''
+=======
+        required: true
+    },
+    series: {
+        type: String
+>>>>>>> b72e69ef11034dde096e0834091b70d8760acec3:schemas/costume.js
     },
     sizes: [
         {
@@ -53,6 +60,7 @@ let costumeSchemas = new mongoose.Schema({
         type: [String], 
         default: [] 
     },
+<<<<<<< HEAD:backend/schemas/costume.js
     deleteInfo: {
         isDeleted: {
             type: Boolean,
@@ -71,6 +79,12 @@ let costumeSchemas = new mongoose.Schema({
             default: null
         },
     },
+=======
+    isDeleted: {
+        type: Boolean,
+        default: false
+    }
+>>>>>>> b72e69ef11034dde096e0834091b70d8760acec3:schemas/costume.js
 }, {
     timestamps: true
 });
